@@ -5,4 +5,5 @@
 #include "CoreMinimal.h"
 
 
-DECLARE_LOG_CATEGORY_EXTERN(LogMainMenu, Log, All);
+DECLARE_LOG_CATEGORY_EXTERN(LogUI, Log, All);
+DECLARE_LOG_CATEGORY_EXTERN(LogGameData, Log, All);

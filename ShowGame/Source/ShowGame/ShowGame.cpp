@@ -4,4 +4,5 @@
 #include "Modules/ModuleManager.h"
 
 IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, ShowGame, "ShowGame" );
-DEFINE_LOG_CATEGORY(LogMainMenu);
+DEFINE_LOG_CATEGORY(LogUI);
+DEFINE_LOG_CATEGORY(LogGameData);

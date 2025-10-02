@@ -19,6 +19,6 @@ void ASGHUD::BeginPlay()
 	UISubsystem = World->GetSubsystem<USGUISubsystem>();
 	if (!UISubsystem)
 	{
-		UE_LOG(LogMainMenu,Warning, TEXT("UI子系统初始化失败"));
+		UE_LOG(LogUI,Warning, TEXT("UI子系统初始化失败"));
 	}
 }
