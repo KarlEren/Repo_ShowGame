@@ -3,6 +3,7 @@
 
 #include "Gameplay/SGHUD.h"
 
+#include "ShowGame/ShowGame.h"
 #include "Subsystems/SGUISubsystem.h"
 
 
@@ -18,6 +19,6 @@ void ASGHUD::BeginPlay()
 	UISubsystem = World->GetSubsystem<USGUISubsystem>();
 	if (!UISubsystem)
 	{
-		UE_LOG(LogSlate, Error, TEXT("UI子系统获取失败"));
+		UE_LOG(LogMainMenu,Warning, TEXT("UI子系统初始化失败"));
 	}
 }
