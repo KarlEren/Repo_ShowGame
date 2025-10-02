@@ -4,13 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
-#include "SGModeBase.generated.h"
+#include "SGGameModeBase.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class SHOWGAME_API ASGModeBase : public AGameModeBase
+class SHOWGAME_API ASGGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
 	

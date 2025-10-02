@@ -13,5 +13,13 @@ UCLASS()
 class SHOWGAME_API ASGHUD : public AHUD
 {
 	GENERATED_BODY()
-	
+
+
+protected:
+	virtual void BeginPlay() override;
+private:
+
+	//UI子系统引用
+	UPROPERTY()
+	TObjectPtr<UWorldSubsystem>UISubsystem;
 };

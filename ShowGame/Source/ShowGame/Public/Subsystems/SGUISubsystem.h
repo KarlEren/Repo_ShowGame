@@ -3,14 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Subsystems/Subsystem.h"
-#include "GameModeSubsystem.generated.h"
+#include "Subsystems/WorldSubsystem.h"
+#include "SGUISubsystem.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class SHOWGAME_API UGameModeSubsystem : public USubsystem
+class SHOWGAME_API USGUISubsystem : public UWorldSubsystem
 {
 	GENERATED_BODY()
 	
