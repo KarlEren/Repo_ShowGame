@@ -35,7 +35,9 @@ void USGGameInstance::Init()
 	USGGameDataSettings *GameDataSettings = GetMutableDefault<USGGameDataSettings>();
 	if (GameDataSettings)
 	{
-		//这里不知道为什么异步加载会失效
+		/*
+		 * 这里之所以不用异步加载是因为，重载GameMode的函数为const成员函数，无法在异步没加载完成时进行同步加载
+		 */
 		GameMapInfos = GameDataSettings->GameMapInfos.LoadSynchronous();	
 	}
 	else
