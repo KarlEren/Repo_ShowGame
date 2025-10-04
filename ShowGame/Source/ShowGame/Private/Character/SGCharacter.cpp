@@ -7,7 +7,18 @@
 ASGCharacter::ASGCharacter()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
+
+	SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>(TEXT("弹簧臂组件"));
+	if (SpringArmComponent)
+	{
+		SpringArmComponent->SetupAttachment(RootComponent);
+	}
+	CameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("摄像机组件"));
+	if (CameraComponent)
+	{
+		CameraComponent->SetupAttachment(SpringArmComponent);
+	}
 
 }
 
