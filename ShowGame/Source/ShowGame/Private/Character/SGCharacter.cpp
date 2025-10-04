@@ -3,6 +3,9 @@
 
 #include "Character/SGCharacter.h"
 
+#include "GameFramework/CharacterMovementComponent.h"
+#include "GameFramework/MovementComponent.h"
+
 // Sets default values
 ASGCharacter::ASGCharacter()
 {
@@ -20,6 +23,15 @@ ASGCharacter::ASGCharacter()
 		CameraComponent->SetupAttachment(SpringArmComponent);
 	}
 
+	UCharacterMovementComponent *MovementComponent = GetCharacterMovement();
+	if (MovementComponent)
+	{
+		MovementComponent->bOrientRotationToMovement = true;
+		MovementComponent->RotationRate = FRotator{0.f,400.f,0.f};
+		MovementComponent->bConstrainToPlane = true;
+		MovementComponent->bSnapToPlaneAtStart = true;
+	}
+	
 }
 
 // Called when the game starts or when spawned

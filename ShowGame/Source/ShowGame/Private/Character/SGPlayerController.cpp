@@ -28,6 +28,7 @@ void ASGPlayerController::SetupInputComponent()
 	EnhancedInputComponent->BindAction(MoveAction,ETriggerEvent::Triggered,this,&ASGPlayerController::Move);
 	EnhancedInputComponent->BindAction(JumpAction,ETriggerEvent::Started,this,&ASGPlayerController::Jump);
 	EnhancedInputComponent->BindAction(JumpAction,ETriggerEvent::Completed,this,&ASGPlayerController::StopJump);
+	EnhancedInputComponent->BindAction(LookAction,ETriggerEvent::Triggered,this,&ASGPlayerController::Look);
 	
 }
 
@@ -66,4 +67,10 @@ void ASGPlayerController::StopJump(const FInputActionValue& InputActionValue)
 
 void ASGPlayerController::Look(const FInputActionValue& InputActionValue)
 {
+	APawn *SGPawn=GetPawn<APawn>();
+	if (SGPawn)
+	{
+		SGPawn->AddControllerYawInput(InputActionValue.Get<FVector2D>().X);
+		SGPawn->AddControllerPitchInput(InputActionValue.Get<FVector2D>().Y);
+	}
 }
