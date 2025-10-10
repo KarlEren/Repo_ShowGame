@@ -23,8 +23,8 @@ class SHOWGAME_API ASGPlayerController : public APlayerController
 
 
 protected:
-	virtual void BeginPlay() override;
 	virtual void SetupInputComponent() override;
+	virtual void OnPossess(APawn* InPawn) override;
 
 private:
 	UPROPERTY(EditAnywhere)

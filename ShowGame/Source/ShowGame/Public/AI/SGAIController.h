@@ -13,5 +13,17 @@ UCLASS()
 class SHOWGAME_API ASGAIController : public AAIController
 {
 	GENERATED_BODY()
+
+
+	
+protected:
+	
+	virtual void OnPossess(APawn* InPawn) override;
+	
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
+	TObjectPtr<UBehaviorTree> BehaviorTree;
+
+	UFUNCTION()
+	void OnPerceptionUpdate(const TArray<AActor*>& UpdatedActors);
 	
 };

@@ -8,7 +8,7 @@ public class ShowGame : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" ,"UMG","ShowGame","DeveloperSettings","UnrealEd","EnhancedInput"});
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" ,"UMG","ShowGame","DeveloperSettings","UnrealEd","EnhancedInput","AIModule","StructUtils"});
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
 

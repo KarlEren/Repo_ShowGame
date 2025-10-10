@@ -5,17 +5,7 @@
 
 #include "GameFramework/Character.h"
 
-void ASGPlayerController::BeginPlay()
-{
-	Super::BeginPlay();
-	//同理，如果输入相关没有初始化失败，直接崩溃比较好
-	checkf(SGInputContext,TEXT("输入映射初始化失败"));
 
-	UEnhancedInputLocalPlayerSubsystem *Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer());
-	checkf(Subsystem,TEXT("输入系统初始化失败"));
-
-	Subsystem->AddMappingContext(SGInputContext,0);
-}
 
 void ASGPlayerController::SetupInputComponent()
 {
@@ -30,6 +20,22 @@ void ASGPlayerController::SetupInputComponent()
 	EnhancedInputComponent->BindAction(JumpAction,ETriggerEvent::Completed,this,&ASGPlayerController::StopJump);
 	EnhancedInputComponent->BindAction(LookAction,ETriggerEvent::Triggered,this,&ASGPlayerController::Look);
 	
+}
+
+
+void ASGPlayerController::OnPossess(APawn* InPawn)
+{
+	Super::OnPossess(InPawn);
+	//同理，如果输入相关没有初始化失败，直接崩溃比较好
+	checkf(SGInputContext,TEXT("输入映射初始化失败"));
+
+	ULocalPlayer *LocalPlayer = GetLocalPlayer();
+	checkf(LocalPlayer,TEXT("LocalPlayer获取失败"));
+	
+	UEnhancedInputLocalPlayerSubsystem *Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(LocalPlayer);
+	checkf(Subsystem,TEXT("输入系统初始化失败"));
+
+	Subsystem->AddMappingContext(SGInputContext,0);
 }
 
 void ASGPlayerController::Move(const FInputActionValue& InputActionValue)

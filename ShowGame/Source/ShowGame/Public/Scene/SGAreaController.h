@@ -3,17 +3,19 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/Character.h"
-#include "SGAIPawn.generated.h"
-
+#include "GameFramework/Actor.h"
+#include "SGAreaController.generated.h"
+/*
+ *原视频里是以墙为分界划出一个个关卡区域，所以这里每个对应关卡都有一个区域管理器
+ */
 UCLASS()
-class SHOWGAME_API ASGAIPawn : public ACharacter
+class SHOWGAME_API ASGAreaController : public AActor
 {
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this character's properties
-	ASGAIPawn();
+	// Sets default values for this actor's properties
+	ASGAreaController();
 
 protected:
 	// Called when the game starts or when spawned
@@ -22,7 +24,4 @@ protected:
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 };
