@@ -3,8 +3,8 @@
 
 #include "Data/AIEvent.h"
 
-void FSGAIEvent::PostAIDead()
+void FSGAIAllSpawnPrintLog::PostAIAllSpawn()
 {
-	FSGAIEventBase::PostAIDead();
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, "AI Dead");
+	FSGAIEventBase::PostAIAllSpawn();
+	GEngine->AddOnScreenDebugMessage(-1,10.f,FColor::Green,TEXT("AI全部生成完毕"));
 }

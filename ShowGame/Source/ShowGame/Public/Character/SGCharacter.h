@@ -27,6 +27,9 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TObjectPtr<UCameraComponent> CameraComponent;
 
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
+	TObjectPtr<UAnimMontage> AnimMontage;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

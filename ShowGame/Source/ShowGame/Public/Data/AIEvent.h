@@ -21,13 +21,17 @@ struct FSGAIEventBase
 
 	virtual void PostAIAttributeChange(){}
 
+	virtual void PostAISpawn(){}
+
+	virtual void PostAIAllSpawn(){}
+
 	virtual ~FSGAIEventBase(){}
 };
 
-USTRUCT(BlueprintType,meta=(DisplayName="这是一个普通的事件"))
-struct FSGAIEvent:public FSGAIEventBase
+USTRUCT(BlueprintType,meta=(DisplayName="全部生成完毕后打印测试信息"))
+struct FSGAIAllSpawnPrintLog:public FSGAIEventBase
 {
 	GENERATED_USTRUCT_BODY()
 
-	virtual void PostAIDead() override;
+	virtual void PostAIAllSpawn() override;
 };
